@@ -38,10 +38,10 @@ struct EditActionView: View {
             }
 
             Section {
-                Toggle("Mark Completed", isOn: $completed.onChange(update))
+                Toggle(String.localize("Mark Completed",comment: "") , isOn: $completed.onChange(update))
             }
         }
-        .navigationTitle("Edit Action")
+        .navigationTitle(String.localize("Edit Action", comment: ""))
         .onDisappear(perform: dataController.save)
     }
 
@@ -53,7 +53,11 @@ struct EditActionView: View {
         action.completed = completed
     }
 
+
 }
+
+
+
 
 struct EditactionView_Previews: PreviewProvider {
     static var previews: some View {

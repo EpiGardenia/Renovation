@@ -60,8 +60,8 @@ struct HomeView: View {
 
 
                     VStack(alignment: .leading) {
-                        list("Up next", for: actions.wrappedValue.prefix(3)) // read first three
-                        list("More to explore", for: actions.wrappedValue.dropFirst(3))
+                        list(String.localize("Up next", comment: ""), for: actions.wrappedValue.prefix(3)) // read first three
+                        list(String.localize("More to explore", comment: ""), for: actions.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
 

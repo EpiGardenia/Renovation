@@ -39,6 +39,11 @@
 		1A9AD1DB2626345E001495C6 /* RenovateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD1BD2626345E001495C6 /* RenovateApp.swift */; };
 		1A9AD20A262707BB001495C6 /* RenovateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD1FC2626395F001495C6 /* RenovateUITests.swift */; };
 		1A9AD2132627087F001495C6 /* RenovateUITests.xctest in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD1812625BC06001495C6 /* RenovateUITests.xctest */; };
+		1A9AD26426271D53001495C6 /* String_Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD26326271D53001495C6 /* String_Ext.swift */; };
+		1A9AD2AF26272268001495C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2AE26272268001495C6 /* Localizable.strings */; };
+		1A9AD2B926272A10001495C6 /* Renovation.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2B826272A10001495C6 /* Renovation.strings */; };
+		1A9AD2C426272C15001495C6 /* CoreData.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2C326272C15001495C6 /* CoreData.strings */; };
+		1A9AD2D22627333D001495C6 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2D12627333D001495C6 /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +93,11 @@
 		1A9AD1BD2626345E001495C6 /* RenovateApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenovateApp.swift; sourceTree = "<group>"; };
 		1A9AD1FC2626395F001495C6 /* RenovateUITests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RenovateUITests.swift; sourceTree = "<group>"; };
 		1A9AD1FD2626395F001495C6 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1A9AD26326271D53001495C6 /* String_Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String_Ext.swift; sourceTree = "<group>"; };
+		1A9AD2AE26272268001495C6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		1A9AD2B826272A10001495C6 /* Renovation.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = Renovation.strings; sourceTree = "<group>"; };
+		1A9AD2C326272C15001495C6 /* CoreData.strings */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; path = CoreData.strings; sourceTree = "<group>"; };
+		1A9AD2D12627333D001495C6 /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; path = Localizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +140,22 @@
 		1A5E1DF025F6C4A5006EB207 /* Renovate */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD2BE26272A3C001495C6 /* Localization */,
+				1A9AD2AD2627223B001495C6 /* Extension */,
+				1A9AD1A52626345D001495C6 /* AwardsView.swift */,
+				1A9AD1A62626345D001495C6 /* Award.swift */,
+				1A9AD1A72626345D001495C6 /* Awards.json */,
+				1A9AD1AB2626345D001495C6 /* EditActionView.swift */,
+				1A9AD1AC2626345D001495C6 /* RenovationHeaderView.swift */,
+				1A9AD1AD2626345D001495C6 /* ActionRowView.swift */,
+				1A9AD1AE2626345D001495C6 /* EditRenovationView.swift */,
+				1A9AD1AF2626345D001495C6 /* RenovationsView.swift */,
+				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
+				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
+				1A9AD1B92626345D001495C6 /* ProductView.swift */,
+				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
+				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
+				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
 				1A9AD1A42626345C001495C6 /* Award */,
 				1A9AD1AA2626345D001495C6 /* Project */,
 				1A9AD1B62626345D001495C6 /* InAppPurchase */,
@@ -166,9 +192,6 @@
 		1A9AD1A42626345C001495C6 /* Award */ = {
 			isa = PBXGroup;
 			children = (
-				1A9AD1A52626345D001495C6 /* AwardsView.swift */,
-				1A9AD1A62626345D001495C6 /* Award.swift */,
-				1A9AD1A72626345D001495C6 /* Awards.json */,
 			);
 			path = Award;
 			sourceTree = "<group>";
@@ -184,11 +207,6 @@
 		1A9AD1AA2626345D001495C6 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				1A9AD1AB2626345D001495C6 /* EditActionView.swift */,
-				1A9AD1AC2626345D001495C6 /* RenovationHeaderView.swift */,
-				1A9AD1AD2626345D001495C6 /* ActionRowView.swift */,
-				1A9AD1AE2626345D001495C6 /* EditRenovationView.swift */,
-				1A9AD1AF2626345D001495C6 /* RenovationsView.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -196,12 +214,6 @@
 		1A9AD1B62626345D001495C6 /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
-				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
-				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
-				1A9AD1B92626345D001495C6 /* ProductView.swift */,
-				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
-				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
-				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
 			);
 			path = InAppPurchase;
 			sourceTree = "<group>";
@@ -214,6 +226,25 @@
 			);
 			path = RenovateUITest;
 			sourceTree = SOURCE_ROOT;
+		};
+		1A9AD2AD2627223B001495C6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD26326271D53001495C6 /* String_Ext.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		1A9AD2BE26272A3C001495C6 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD2C326272C15001495C6 /* CoreData.strings */,
+				1A9AD2B826272A10001495C6 /* Renovation.strings */,
+				1A9AD2AE26272268001495C6 /* Localizable.strings */,
+				1A9AD2D12627333D001495C6 /* Localizable.stringsdict */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -298,7 +329,11 @@
 				1A9AD1C02626345E001495C6 /* Colors.xcassets in Resources */,
 				1A9AD1D82626345E001495C6 /* Configuration.storekit in Resources */,
 				1A9AD1C82626345E001495C6 /* Awards.json in Resources */,
+				1A9AD2D22627333D001495C6 /* Localizable.stringsdict in Resources */,
+				1A9AD2C426272C15001495C6 /* CoreData.strings in Resources */,
 				1A9AD1C92626345E001495C6 /* Preview Assets.xcassets in Resources */,
+				1A9AD2AF26272268001495C6 /* Localizable.strings in Resources */,
+				1A9AD2B926272A10001495C6 /* Renovation.strings in Resources */,
 				1A9AD1D32626345E001495C6 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A9AD26426271D53001495C6 /* String_Ext.swift in Sources */,
 				1A9AD2132627087F001495C6 /* RenovateUITests.xctest in Sources */,
 				1A9AD1C22626345E001495C6 /* HomeView.swift in Sources */,
 				1A9AD1D52626345E001495C6 /* SKProduct-LocalizedPrice.swift in Sources */,

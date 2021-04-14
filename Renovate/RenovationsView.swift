@@ -85,7 +85,7 @@ struct RenovationsView: View {
                                             dataController.save()
                                         }
                                     } label: {
-                                        Label("Add New Action", systemImage: "plus")
+                                        Label(String.localize("Add New Action", comment: "Add new action"), systemImage: "plus")
                                     }
                                 }
                             }
@@ -94,7 +94,9 @@ struct RenovationsView: View {
                     .listStyle(InsetGroupedListStyle())
                 }
             } // end of Group
-            .navigationTitle(showClosedRenovations ? "Closed Renovations" : "Open Renovations")
+            .navigationTitle(showClosedRenovations ?
+                                String.localize("Closed Renovations", tableName: "Renovation", comment: ""):
+                                String.localize("Open Renovations", tableName: "Renovation", comment: ""))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     if showClosedRenovations == false {
@@ -106,7 +108,7 @@ struct RenovationsView: View {
                                 dataController.save()
                             }
                         } label: {
-                            Label("Add Renovation", systemImage: "plus")
+                            Label(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"), systemImage: "plus")
                         }
                     }
                 }
@@ -115,7 +117,8 @@ struct RenovationsView: View {
                     Button {
                         showingSortOrder.toggle()
                     } label: {
-                        Label("Sort", systemImage: "arrow.up.arrow.down")
+                        Label(String.localize("Sort", tableName: "Renovation", comment: "")
+                              , systemImage: "arrow.up.arrow.down")
                     }
                 }
             }
