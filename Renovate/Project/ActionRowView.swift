@@ -1,5 +1,5 @@
 //
-//  ItemRowView.swift
+//  ActionRowView.swift
 //  Renovate
 //
 //  Created by T  on 2021-03-09.
@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-struct ItemRowView: View {
-    @ObservedObject var project: Project
-    // thus we catch the "objectwillchange" in update() of EditItemView
-    @ObservedObject var item: Item
+struct ActionRowView: View {
+    @ObservedObject var renovation: Renovation
+    // thus we catch the "objectwillchange" in update() of EditActionView
+    @ObservedObject var action: Action
 
     var body: some View {
-        NavigationLink(destination: EditItemView(item: item)) {
+        NavigationLink(destination: EditActionView(action: action)) {
             Label {
-                Text(item.itemTitle)
+                Text(action.actionTitle)
             } icon: {
                 icon
             }
@@ -27,12 +27,12 @@ struct ItemRowView: View {
      p.s. func icon() -> some View works too.
      */
     var icon: some View {
-        if item.completed {
+        if action.completed {
             return Image(systemName: "checkmark.circle")
-                .foregroundColor(Color(project.projectColor))
-        } else if item.priority == 3 {
+                .foregroundColor(Color(renovation.renovationColor))
+        } else if action.priority == 3 {
             return Image(systemName: "exclamationmark.triangle")
-                .foregroundColor(Color(project.projectColor))
+                .foregroundColor(Color(renovation.renovationColor))
         } else {
             return Image(systemName: "checkmark.circle")
                 .foregroundColor(.clear)
@@ -40,8 +40,8 @@ struct ItemRowView: View {
     }
 }
 
-struct ItemRowView_Previews: PreviewProvider {
+struct actionRowView_Previews: PreviewProvider {
     static var previews: some View {
-        ItemRowView(project: Project.example, item: Item.example)
+        ActionRowView(renovation: Renovation.example, action: Action.example)
     }
 }

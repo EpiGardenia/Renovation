@@ -62,19 +62,19 @@ class DataController: ObservableObject {
         let viewContext = container.viewContext
 
         for i in 1...5 {
-            let project = Project(context: viewContext)
-            project.title = "Project \(i)"
-            project.items = []
-            project.creationDate = Date()
-            project.closed = Bool.random()
+            let renovation = Renovation(context: viewContext)
+            renovation.title = "Renovation \(i)"
+            renovation.actions = []
+            renovation.creationDate = Date()
+            renovation.closed = Bool.random()
 
             for j in 1...10 {
-                let item = Item(context: viewContext)
-                item.title = "Item \(j)"
-                item.creationDate = Date()
-                item.completed = Bool.random()
-                item.project = project
-                item.priority = Int16.random(in: 1...3)
+                let action = Action(context: viewContext)
+                action.title = "Action \(j)"
+                action.creationDate = Date()
+                action.completed = Bool.random()
+                action.renovation = renovation
+                action.priority = Int16.random(in: 1...3)
             }
         }
 
@@ -92,11 +92,11 @@ class DataController: ObservableObject {
     }
 
     func deleteAll() {
-        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Item.fetchRequest()
+        let fetchRequest1: NSFetchRequest<NSFetchRequestResult> = Action.fetchRequest()
         let batchDeleteRequest1 = NSBatchDeleteRequest(fetchRequest: fetchRequest1)
         _ = try? container.viewContext.execute(batchDeleteRequest1)
 
-        let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Project.fetchRequest()
+        let fetchRequest2: NSFetchRequest<NSFetchRequestResult> = Renovation.fetchRequest()
         let batchDeleteRequest2 = NSBatchDeleteRequest(fetchRequest: fetchRequest2)
         _ = try? container.viewContext.execute(batchDeleteRequest2)
     }
@@ -107,13 +107,13 @@ class DataController: ObservableObject {
 
     func hasEarned(award: Award) -> Bool {
         switch award.criterion {
-            case "items":
-                let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+            case "actions":
+                let fetchRequest: NSFetchRequest<Action> = NSFetchRequest(entityName: "Action")
                 let awardCount = count(for: fetchRequest)
                 return awardCount >= award.value
 
             case "complete":
-                let fetchRequest: NSFetchRequest<Item> = NSFetchRequest(entityName: "Item")
+                let fetchRequest: NSFetchRequest<Action> = NSFetchRequest(entityName: "Action")
                 fetchRequest.predicate = NSPredicate(format: "completed = true")
                 let awardCount = count(for: fetchRequest)
                 return awardCount >= award.value

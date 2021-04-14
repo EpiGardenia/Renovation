@@ -11,22 +11,22 @@ import CoreData
 struct HomeView: View {
     @EnvironmentObject var dataController: DataController
     static let tag: String? = "Home"
-    @FetchRequest(entity: Project.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Project.title, ascending: true)], predicate: NSPredicate(format: "closed = false")) var projects: FetchedResults<Project>
+    @FetchRequest(entity: Renovation.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Renovation.title, ascending: true)], predicate: NSPredicate(format: "closed = false")) var renovations: FetchedResults<Renovation>
 
-    let items: FetchRequest<Item>
+    let actions: FetchRequest<Action>
     init() {
-        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        let request: NSFetchRequest<Action> = Action.fetchRequest()
         request.predicate = NSPredicate(format: "completed = false")
 
         request.sortDescriptors = [
-            NSSortDescriptor(keyPath: \Item.priority, ascending: false)
+            NSSortDescriptor(keyPath: \Action.priority, ascending: false)
         ]
         request.fetchLimit = 10
-        items = FetchRequest(fetchRequest: request)
+        actions = FetchRequest(fetchRequest: request)
         // more code to come
     }
 
-    var projectRows: [GridItem] {
+    var renovationRows: [GridItem] {
         [GridItem(.fixed(100))]
     }
 
@@ -35,18 +35,18 @@ struct HomeView: View {
             ScrollView {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHGrid(rows: projectRows) {
-                            ForEach(projects) { project in
+                        LazyHGrid(rows: renovationRows) {
+                            ForEach(renovations) { renovation in
                                 VStack(alignment: .leading) {
-                                    Text("\(project.projectItems.count) items")
+                                    Text("\(renovation.renovationActions.count) Actions")
                                         .font(.caption)
                                         .foregroundColor(.secondary)
 
-                                    Text(project.projectTitle)
+                                    Text(renovation.renovationTitle)
                                         .font(.title2)
 
-                                    ProgressView(value: project.completionAmount)
-                                        .accentColor(Color(project.projectColor))
+                                    ProgressView(value: renovation.completionAmount)
+                                        .accentColor(Color(renovation.renovationColor))
                                 }
                                 .padding()
                                 .background(Color.secondarySystemGroupedBackground)
@@ -60,8 +60,8 @@ struct HomeView: View {
 
 
                     VStack(alignment: .leading) {
-                        list("Up next", for: items.wrappedValue.prefix(3)) // read first three
-                        list("More to explore", for: items.wrappedValue.dropFirst(3))
+                        list("Up next", for: actions.wrappedValue.prefix(3)) // read first three
+                        list("More to explore", for: actions.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
 
@@ -83,8 +83,8 @@ struct HomeView: View {
         //        }
     }
 
-    @ViewBuilder func list(_ title: String, for items: FetchedResults<Item>.SubSequence) -> some View {
-        if items.isEmpty {
+    @ViewBuilder func list(_ title: String, for actions: FetchedResults<Action>.SubSequence) -> some View {
+        if actions.isEmpty {
             EmptyView()
         } else {
             Text(title)
@@ -92,21 +92,21 @@ struct HomeView: View {
                 .foregroundColor(.secondary)
                 .padding(.top)
 
-            ForEach(items) { item in
-                NavigationLink(destination: EditItemView(item: item)) {
+            ForEach(actions) { action in
+                NavigationLink(destination: EditActionView(action: action)) {
                     HStack(spacing: 20) {
                         Circle()
-                            .stroke(Color(item.project?.projectColor ?? "Light Blue"), lineWidth: 3)
+                            .stroke(Color(action.renovation?.renovationColor ?? "Light Blue"), lineWidth: 3)
                             .frame(width: 44, height: 44)
 
                         VStack(alignment: .leading) {
-                            Text(item.itemTitle)
+                            Text(action.actionTitle)
                                 .font(.title2)
                                 .foregroundColor(.primary)
                                 .frame(maxWidth: .infinity, alignment: .leading)
 
-                            if item.itemDetail.isEmpty == false {
-                                Text(item.itemDetail)
+                            if action.actionDetail.isEmpty == false {
+                                Text(action.actionDetail)
                                     .foregroundColor(.secondary)
                             }
                         }

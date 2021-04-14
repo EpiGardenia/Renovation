@@ -16,10 +16,10 @@ struct ProductView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                Text("Get Unlimited Projects")
+                Text("Get Unlimited Renovations")
                     .font(.headline)
                     .padding(.top, 10)
-                Text("You can add three projects for free, or pay \(product.localizedPrice) to add unlimited projects")
+                Text("You can add three renovations for free, or pay \(product.localizedPrice) to add unlimited renovations")
                 Text("If you already bought the unlock on another device, press Restore Purchases.")
 
                 Button("Unlock for \(product.localizedPrice)", action: unlock)

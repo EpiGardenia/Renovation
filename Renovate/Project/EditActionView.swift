@@ -1,5 +1,5 @@
 //
-//  EditItemView.swift
+//  EditactionView.swift
 //  Renovate
 //
 //  Created by T  on 2021-03-09.
@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct EditItemView: View {
-    let item: Item
+struct EditActionView: View {
+    let action: Action
     @EnvironmentObject var dataController: DataController
     @State private var title: String
     @State private var detail: String
     @State private var priority: Int
     @State private var completed: Bool
-    init(item: Item) {
-        self.item = item
-        _title = State(wrappedValue: item.itemTitle)
-        _detail = State(wrappedValue: item.itemDetail)
-        _priority = State(wrappedValue: Int(item.priority))
-        _completed = State(wrappedValue: item.completed)
+    init(action: Action) {
+        self.action = action
+        _title = State(wrappedValue: action.actionTitle)
+        _detail = State(wrappedValue: action.actionDetail)
+        _priority = State(wrappedValue: Int(action.priority))
+        _completed = State(wrappedValue: action.completed)
     }
     var body: some View {
         Form {
             Section(header: Text("Basic settings")) {
-                TextField("Item name", text: $title.onChange(update))
+                TextField("Action name", text: $title.onChange(update))
                 TextField("Description", text: $detail.onChange(update))
             }
 
@@ -41,22 +41,22 @@ struct EditItemView: View {
                 Toggle("Mark Completed", isOn: $completed.onChange(update))
             }
         }
-        .navigationTitle("Edit Item")
+        .navigationTitle("Edit Action")
         .onDisappear(perform: dataController.save)
     }
 
     func update() {
-        item.project?.objectWillChange.send()
-        item.title = title
-        item.detail = detail
-        item.priority = Int16(priority)
-        item.completed = completed
+        action.renovation?.objectWillChange.send()
+        action.title = title
+        action.detail = detail
+        action.priority = Int16(priority)
+        action.completed = completed
     }
 
 }
 
-struct EditItemView_Previews: PreviewProvider {
+struct EditactionView_Previews: PreviewProvider {
     static var previews: some View {
-        EditItemView(item: Item.example)
+        EditActionView(action: Action.example)
     }
 }

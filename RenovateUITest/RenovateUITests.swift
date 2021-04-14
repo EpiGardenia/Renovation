@@ -37,7 +37,7 @@ class RenovateUITests: XCTestCase {
     }
 
 
-    func testOpenTabAddsItems()  throws {
+    func testOpenTabAddsActions()  throws {
         app.buttons["Open"].tap()
         //attempt to locate a table (List, in SwiftUI) on the screen
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
@@ -49,26 +49,26 @@ class RenovateUITests: XCTestCase {
     }
 
 
-    func testAddingProjectInsertsRows() {
+    func testAddingRenovationInsertsRows() {
         app.buttons["Open"].tap()
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
 
         app.buttons["add"].tap()
-        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a project.")
+        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a renovation.")
 
-        app.buttons["Add New Item"].tap()
-        XCTAssertEqual(app.tables.cells.count, 2, "There should be 2 list rows after adding an item.")
+        app.buttons["Add New Action"].tap()
+        XCTAssertEqual(app.tables.cells.count, 2, "There should be 2 list rows after adding an action.")
     }
 
-    func testEditingProjectUpdatesCorrectly() {
+    func testEditingRenovationUpdatesCorrectly() {
         app.buttons["Open"].tap()
         XCTAssertEqual(app.tables.cells.count, 0, "There should be no list rows initially.")
 
         app.buttons["add"].tap()
-        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a project.")
+        XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a renovation.")
 
-        app.buttons["NEW PROJECT"].tap()
-        app.textFields["Project name"].tap()
+        app.buttons["NEW RENOVATION"].tap()
+        app.textFields["Renovation name"].tap()
 
         /*
          Now, XCTest actually provides a typeText() method that lets us insert free text strings, but honestly it’s pretty buggy –
@@ -82,8 +82,8 @@ class RenovateUITests: XCTestCase {
         app.buttons["Return"].tap()
 
 
-        app.buttons["Open Projects"].tap()
+        app.buttons["Open Renovations"].tap()
 
-        XCTAssertTrue(app.buttons["NEW PROJECT 2"].exists, "The new project name should be visible in the list.")
+        XCTAssertTrue(app.buttons["NEW RENOVATION 2"].exists, "The new renovation name should be visible in the list.")
     }
 }
