@@ -39,22 +39,30 @@ struct EditRenovationView: View {
 
             Section(header: Text("Custom renovation color")) {
                 LazyVGrid(columns: colorColumns) {
-                    ForEach(Renovation.colors, id: \.self) { action in
+                    ForEach(Renovation.colors, id: \.self) { colorItem in
                         ZStack {
-                            Color(action)
+                            Color(colorItem)
                                 .aspectRatio(1, contentMode: .fit)
                                 .cornerRadius(6)
 
-                            if action == color {
+                            if colorItem == color {
                                 Image(systemName: "checkmark.circle")
                                     .foregroundColor(.white)
                                     .font(.largeTitle)
                             }
                         }
                         .onTapGesture {
-                            color = action
+                            color = colorItem
                             update()
                         }
+                        // Not read the color until it is selected
+                        .accessibilityElement(children: .ignore)
+                        .accessibilityAddTraits(
+                            colorItem == color
+                                ? [.isButton, .isSelected]
+                                : .isButton
+                        )
+                        .accessibilityLabel(LocalizedStringKey(colorItem))
                     }
                 }
                 .padding(.vertical)

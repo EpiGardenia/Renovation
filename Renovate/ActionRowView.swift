@@ -20,6 +20,7 @@ struct ActionRowView: View {
                 icon
             }
         }
+        .accessibilityLabel(label)
     }
 
     /*
@@ -38,7 +39,19 @@ struct ActionRowView: View {
                 .foregroundColor(.clear)
         }
     }
+
+
+    var label: Text {
+        if action.completed {
+            return Text("\(action.actionTitle), completed.")
+        } else if action.priority == 3 {
+            return Text("\(action.actionTitle), high priority.")
+        } else {
+            return Text(action.actionTitle)
+        }
+    }
 }
+
 
 struct actionRowView_Previews: PreviewProvider {
     static var previews: some View {

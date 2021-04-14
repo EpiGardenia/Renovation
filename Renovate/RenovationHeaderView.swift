@@ -28,6 +28,8 @@ struct RenovationHeaderView: View {
                 EmptyView()
             }
         }
+        .padding(.bottom, 10)
+        .accessibilityElement(children: .combine)  // read all at once
     }
 }
 

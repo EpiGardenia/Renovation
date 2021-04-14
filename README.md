@@ -24,8 +24,8 @@ Use `genstrings -SwiftUI *.swift -s localize -o .`  with string extension to int
 Use tablename to category localization strings to be more maintainable
 
 ### Accessibility
-
-
+VoiceOver: label, trait, hint, children
+ 
 
 
 ## Credits

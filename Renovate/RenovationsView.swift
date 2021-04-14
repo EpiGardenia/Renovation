@@ -51,6 +51,7 @@ struct RenovationsView: View {
                             Section(header: RenovationHeaderView(renovation: renovation)) {
                                 ForEach(renovation.renovationActions(using: sortOrder)) { action in
                                     ActionRowView(renovation: renovation, action: action)
+                                    
                                 }
                                 /*
                                  We’re passed an IndexSet, not an array, and this is a special albeit rarely used collection type that is already sorted, and also only ever contains unique integers that are zero or greater.
@@ -108,7 +109,12 @@ struct RenovationsView: View {
                                 dataController.save()
                             }
                         } label: {
-                            Label(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"), systemImage: "plus")
+                            // To avoid voiceover automatically say "+" as "Add" automatically
+                            if UIAccessibility.isVoiceOverRunning {
+                                Text(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"))
+                            } else {
+                                Label(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"), systemImage: "plus")
+                            }
                         }
                     }
                 }
