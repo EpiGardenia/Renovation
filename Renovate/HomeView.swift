@@ -36,27 +36,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: renovationRows) {
-                            ForEach(renovations) { renovation in
-                                VStack(alignment: .leading) {
-                                    Text("\(renovation.renovationActions.count) Actions")
-                                        .font(.caption)
-                                        .foregroundColor(.secondary)
-
-                                    Text(renovation.renovationTitle)
-                                        .font(.title2)
-
-                                    ProgressView(value: renovation.completionAmount)
-                                        .accentColor(Color(renovation.renovationColor))
-                                }
-                                .padding()
-                                .background(Color.secondarySystemGroupedBackground)
-                                .cornerRadius(10)
-                                .shadow(color: Color.black.opacity(0.2), radius: 5)
-                                // by using .combine, it reads according to default order
-                                .accessibilityElement(children: .ignore)
-                                .accessibilityLabel("\(renovation.renovationTitle), \(renovation.renovationActions.count) actions, \(renovation.completionAmount*100, specifier: "%g")% complete")
-
-                            }
+                            ForEach(renovations, content: ProjectSummaryView.init)
                         }
                         .padding([.horizontal, .top])
                         .fixedSize(horizontal: false, vertical: true)
@@ -64,8 +44,10 @@ struct HomeView: View {
 
 
                     VStack(alignment: .leading) {
-                        list(String.localize("Up next", comment: ""), for: actions.wrappedValue.prefix(3)) // read first three
-                        list(String.localize("More to explore", comment: ""), for: actions.wrappedValue.dropFirst(3))
+                        ActionListView(title: "Up next"
+                                       , actions: actions.wrappedValue.prefix(3)) // read first three
+                        ActionListView(title: "More to explore"
+                                       , actions: actions.wrappedValue.dropFirst(3))
                     }
                     .padding(.horizontal)
 
@@ -87,43 +69,6 @@ struct HomeView: View {
         //        }
     }
 
-    @ViewBuilder func list(_ title: String, for actions: FetchedResults<Action>.SubSequence) -> some View {
-        if actions.isEmpty {
-            EmptyView()
-        } else {
-            Text(title)
-                .font(.headline)
-                .foregroundColor(.secondary)
-                .padding(.top)
-
-            ForEach(actions) { action in
-                NavigationLink(destination: EditActionView(action: action)) {
-                    HStack(spacing: 20) {
-                        Circle()
-                            .stroke(Color(action.renovation?.renovationColor ?? "Light Blue"), lineWidth: 3)
-                            .frame(width: 44, height: 44)
-
-                        VStack(alignment: .leading) {
-                            Text(action.actionTitle)
-                                .font(.title2)
-                                .foregroundColor(.primary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-
-                            if action.actionDetail.isEmpty == false {
-                                Text(action.actionDetail)
-                                    .foregroundColor(.secondary)
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(Color.secondarySystemGroupedBackground)
-                    .cornerRadius(10)
-                    .shadow(color: Color.black.opacity(0.2), radius: 5)
-                }
-            }
-        }
-
-    }
 }
 
 struct HomeView_Previews: PreviewProvider {

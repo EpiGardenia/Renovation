@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+
 extension Renovation {
 
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
@@ -25,6 +27,8 @@ extension Renovation {
     var renovationActions: [Action] {
         actions?.allObjects as? [Action] ?? []
     }
+
+
 
     var renovationActionsDefaultSorted: [Action] {
         renovationActions.sorted { first, second in
@@ -66,6 +70,11 @@ extension Renovation {
                 return renovationActionsDefaultSorted
         }
     }
+
+    var label: LocalizedStringKey {
+        LocalizedStringKey("\(renovationTitle), \(renovationActions.count) actions, \(completionAmount*100, specifier: "%g")% complete.")
+    }
+
 
     static var example: Renovation {
         let controller = DataController(inMemory: true)

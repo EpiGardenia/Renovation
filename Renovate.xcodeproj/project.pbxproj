@@ -46,6 +46,8 @@
 		1A9AD2F326274667001495C6 /* CoreData.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2F526274667001495C6 /* CoreData.strings */; };
 		1A9AD2FC2627484A001495C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2FB2627484A001495C6 /* README.md */; };
 		1A9AD30326274E87001495C6 /* Accessiblity.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD30526274E87001495C6 /* Accessiblity.strings */; };
+		1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30B2628230C001495C6 /* ActionListView.swift */; };
+		1A9AD31026282555001495C6 /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +109,8 @@
 		1A9AD2FB2627484A001495C6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1A9AD30426274E87001495C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Accessiblity.strings; sourceTree = "<group>"; };
 		1A9AD30826274E89001495C6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Accessiblity.strings; sourceTree = "<group>"; };
+		1A9AD30B2628230C001495C6 /* ActionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListView.swift; sourceTree = "<group>"; };
+		1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +182,8 @@
 				1A9AD1B32626345D001495C6 /* ContentView.swift */,
 				1A9AD19D2626345C001495C6 /* DataController.swift */,
 				1A9AD19E2626345C001495C6 /* HomeView.swift */,
+				1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */,
+				1A9AD30B2628230C001495C6 /* ActionListView.swift */,
 				1A9AD1BD2626345E001495C6 /* RenovateApp.swift */,
 				1A9AD19A2626345C001495C6 /* Info.plist */,
 				1A9AD1B22626345D001495C6 /* Action-CoreDataHelpers.swift */,
@@ -378,8 +384,10 @@
 				1A9AD1D42626345E001495C6 /* Sequence-Sorting.swift in Sources */,
 				1A9AD1C52626345E001495C6 /* Binding-OnChange.swift in Sources */,
 				1A9AD1DA2626345E001495C6 /* UnlockView.swift in Sources */,
+				1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */,
 				1A9AD1CE2626345E001495C6 /* RenovationsView.swift in Sources */,
 				1A9AD1CB2626345E001495C6 /* RenovationHeaderView.swift in Sources */,
+				1A9AD31026282555001495C6 /* ProjectSummaryView.swift in Sources */,
 				1A9AD1CC2626345E001495C6 /* ActionRowView.swift in Sources */,
 				1A9AD1D02626345E001495C6 /* Bundle-Decodable.swift in Sources */,
 				1A9AD1C12626345E001495C6 /* DataController.swift in Sources */,
