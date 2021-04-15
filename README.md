@@ -26,6 +26,20 @@ Use tablename to category localization strings to be more maintainable
 ### Accessibility
 VoiceOver: label, trait, hint, children
  
+ ### Design Pattern: MVVM
+#### Model
+Major Core data
+#### View
+RenovationView.swift
+#### ViewModel
+RenovationViewModel.swift.
+
+#### Mechanism
+VM calss is put inside extension of `RenovationView`, but in a seperate file, to seperate core data and view.
+Due to `@FetchRequest` can only work with SwiftUIView, the project uses 
+`NSFetchedResultsController` to fetch the data. 
+When the fetchRequest has been updated,  `controllerDidChangeContent`  will be called, and pass the change to `@Published`, so `RenovationView` get updated. (reactive)
+
 
 
 ## Credits

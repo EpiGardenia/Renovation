@@ -1,5 +1,5 @@
 //
-//  ProjectSummaryView.swift
+//  RenovationSummaryView.swift
 //  Renovate
 //
 //  Created by T  on 2021-04-15.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ProjectSummaryView: View {
+struct RenovationSummaryView: View {
     @ObservedObject var renovation: Renovation
     
     var body: some View {
@@ -32,8 +32,8 @@ struct ProjectSummaryView: View {
     }
 }
 
-struct ProjectSummaryView_Previews: PreviewProvider {
+struct RenovationSummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        ProjectSummaryView(renovation: Renovation.example)
+        RenovationSummaryView(renovation: Renovation.example)
     }
 }

@@ -22,30 +22,23 @@
 import SwiftUI
 
 struct RenovationsView: View {
-    @EnvironmentObject var dataController: DataController
-    @Environment(\.managedObjectContext) var managedObjectContext
-    @State private var showingSortOrder = false
-    @State private var sortOrder = Action.SortOrder.optimized
-    let showClosedRenovations: Bool
-    let renovations: FetchRequest<Renovation>
     static let openTag: String? = "Open"
     static let closedTag: String? = "Closed"
 
-    init(showClosedRenovations: Bool) {
-        self.showClosedRenovations = showClosedRenovations
+    @StateObject var viewModel: ViewModel
+    @State private var showingSortOrder = false
 
-        renovations = FetchRequest<Renovation>(entity: Renovation.entity(), sortDescriptors: [
-            NSSortDescriptor(keyPath: \Renovation.creationDate, ascending: false)
-        ], predicate: NSPredicate(format: "closed = %d", showClosedRenovations))
+    init(dataController: DataController, showClosedRenovations: Bool) {
+        let viewModel = ViewModel(dataController: dataController,
+                                  showClosedRenovations: showClosedRenovations)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
-
     var renovationList: some View {
         List {
-            ForEach(renovations.wrappedValue) { renovation in
+            ForEach(viewModel.renovations) { renovation in
                 Section(header: RenovationHeaderView(renovation: renovation)) {
-                    ForEach(renovation.renovationActions(using: sortOrder)) { action in
+                    ForEach(renovation.renovationActions(using: viewModel.sortOrder)) { action in
                         ActionRowView(renovation: renovation, action: action)
-
                     }
                     /*
                      We’re passed an IndexSet, not an array, and this is a special albeit rarely used collection type that is already sorted, and also only ever contains unique integers that are zero or greater.
@@ -57,13 +50,16 @@ struct RenovationsView: View {
                      This all happens as a Core Data optimization: rather than push through all changes individually, it will hold onto them until the end of the current run loop and execute them all at once. Technically the action itself gets deleted as soon as we ask for it, but that information doesn’t get pushed through any relationships so the renovation won’t update itself immediately.
                      */
                     .onDelete { offsets in
-                        delete(offsets, from: renovation)
+                        viewModel.delete(offsets, from: renovation)
                     }
-                    if showClosedRenovations == false {
+                    if viewModel.showClosedRenovations == false {
                         Button {
-                            addAction(to: renovation)
+                            withAnimation {
+                                viewModel.addAction(to: renovation)
+                            }
                         } label: {
-                            Label(String.localize("Add New Action", comment: "Add new action"), systemImage: "plus")
+                            Label(String.localize("Add New Action", comment: "Add new action"),
+                                  systemImage: "plus")
                         }
                     }
                 }
@@ -74,8 +70,10 @@ struct RenovationsView: View {
 
     var addRenovationToolbarItem: some ToolbarContent {
         ToolbarItem(placement: .navigationBarTrailing) {
-            if showClosedRenovations == false {
-                Button(action: addRenovation) {
+            if viewModel.showClosedRenovations == false {
+                Button { withAnimation {
+                        viewModel.addRenovation()
+                }} label: {
                     // To avoid voiceover automatically say "+" as "Add" automatically
                     if UIAccessibility.isVoiceOverRunning {
                         Text(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"))
@@ -102,14 +100,14 @@ struct RenovationsView: View {
     var body: some View {
         NavigationView {
             Group {
-                if renovations.wrappedValue.count == 0 {
+                if viewModel.renovations.count == 0 {
                     Text("There's nothing here right now.")
                         .foregroundColor(.secondary)
                 } else {
                     renovationList
                 }
             } // end of Group
-            .navigationTitle(showClosedRenovations ?
+            .navigationTitle(viewModel.showClosedRenovations ?
                                 String.localize("Closed Renovations", tableName: "Renovation", comment: ""):
                                 String.localize("Open Renovations", tableName: "Renovation", comment: ""))
             .toolbar {
@@ -118,63 +116,28 @@ struct RenovationsView: View {
             }
             .actionSheet(isPresented: $showingSortOrder) {
                 ActionSheet(title: Text("Sort actions"), message: nil, buttons: [
-                    .default(Text("Optimized")) { sortOrder = .optimized },
-                    .default(Text("Creation Date")) { sortOrder = .creationDate },
-                    .default(Text("Title")) { sortOrder = .title }
+                    .default(Text("Optimized")) { viewModel.sortOrder = .optimized },
+                    .default(Text("Creation Date")) { viewModel.sortOrder = .creationDate },
+                    .default(Text("Title")) { viewModel.sortOrder = .title }
                 ])
             }
             SelectSomethingView()
         }
     }
 
-
-
-    func addRenovation() {
-        withAnimation {
-            let renovation = Renovation(context: managedObjectContext)
-            renovation.closed = false
-            renovation.creationDate = Date()
-            dataController.save()
-        }
-    }
-
-
-
-    func addAction(to renovation: Renovation){
-        withAnimation {
-            let action = Action(context: managedObjectContext)
-            action.renovation = renovation
-            action.creationDate = Date()
-            dataController.save()
-        }
-    }
-
-    func delete(_ offsets: IndexSet, from renovation: Renovation) {
-        let allActions = renovation.renovationActions(using: sortOrder)
-        //print(renovation.renovationactions.count)  // value are the same
-        for offset in offsets {
-            let action = allActions [offset]
-            dataController.delete(action)
-        }
-
-        // With the next line, it delete immediately
-        // dataController.container.viewContext.processPendingChanges()
-        //print(renovation.renovationActions.count)  // value are the same
-        dataController.save()
-    }
 }
 
 struct RenovationsView_Previews: PreviewProvider {
     static var dataController = DataController.preview
 
     static var previews: some View {
-        RenovationsView(showClosedRenovations: false)
+        RenovationsView(dataController: dataController, showClosedRenovations: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
             .previewDevice(PreviewDevice(rawValue: "iPhone 12 Pro Max"))
             .previewDisplayName("iPhone 12 Pro Max")
 
-        RenovationsView(showClosedRenovations: false)
+        RenovationsView(dataController: dataController, showClosedRenovations: false)
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
             .previewDisplayName("iPhone 12 Pro Max landscape")

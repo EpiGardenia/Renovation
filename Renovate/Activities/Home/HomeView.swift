@@ -36,7 +36,7 @@ struct HomeView: View {
                 VStack(alignment: .leading) {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHGrid(rows: renovationRows) {
-                            ForEach(renovations, content: ProjectSummaryView.init)
+                            ForEach(renovations, content: RenovationSummaryView.init)
                         }
                         .padding([.horizontal, .top])
                         .fixedSize(horizontal: false, vertical: true)

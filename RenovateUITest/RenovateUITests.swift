@@ -76,6 +76,7 @@ class RenovateUITests: XCTestCase {
          The only guaranteed way to accurately type is to press individual keys manually,
          including switching between alphabetic and numeric keyboards by pressing what’s called the “more” button on the keyboard
          */
+
         app.keys["space"].tap()
         app.keys["more"].tap()
         app.keys["2"].tap()

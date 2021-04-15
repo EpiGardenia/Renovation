@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @EnvironmentObject var dataController: DataController
     /*
      The “selectedView” string is the name of the UserDefaults key we want to read and write, and although it doesn’t need to match the property name I find it useful just to aid my memory. If you use that same string name in several places, they will all automatically update as the underlying value is changed.
      Using an optional for selectedView is helpful because it means it will have no value by default, and so whatever is the first tab will be selected when the app first runs.
@@ -33,14 +34,14 @@ struct ContentView: View {
                     Text("Home")
                 }
 
-            RenovationsView(showClosedRenovations: false)
+            RenovationsView(dataController: dataController, showClosedRenovations: false)
                 .tag(RenovationsView.openTag)
                 .tabItem {
                     Image(systemName: "list.bullet")
                     Text("Open")
                 }
 
-            RenovationsView(showClosedRenovations: true)
+            RenovationsView(dataController: dataController, showClosedRenovations: true)
                 .tag(RenovationsView.closedTag)
                 .tabItem {
                     Image(systemName: "checkmark")

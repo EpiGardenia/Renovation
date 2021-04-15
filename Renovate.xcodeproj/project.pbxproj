@@ -47,7 +47,8 @@
 		1A9AD2FC2627484A001495C6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD2FB2627484A001495C6 /* README.md */; };
 		1A9AD30326274E87001495C6 /* Accessiblity.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD30526274E87001495C6 /* Accessiblity.strings */; };
 		1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30B2628230C001495C6 /* ActionListView.swift */; };
-		1A9AD31026282555001495C6 /* ProjectSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */; };
+		1A9AD31026282555001495C6 /* RenovationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */; };
+		1A9AD32126283424001495C6 /* RenovationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32026283424001495C6 /* RenovationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,7 +111,8 @@
 		1A9AD30426274E87001495C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Accessiblity.strings; sourceTree = "<group>"; };
 		1A9AD30826274E89001495C6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Accessiblity.strings; sourceTree = "<group>"; };
 		1A9AD30B2628230C001495C6 /* ActionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListView.swift; sourceTree = "<group>"; };
-		1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectSummaryView.swift; sourceTree = "<group>"; };
+		1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationSummaryView.swift; sourceTree = "<group>"; };
+		1A9AD32026283424001495C6 /* RenovationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,44 +156,17 @@
 		1A5E1DF025F6C4A5006EB207 /* Renovate */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD31726283215001495C6 /* Configuration */,
+				1A9AD31426283153001495C6 /* Activities */,
 				1A9AD2BE26272A3C001495C6 /* Localization */,
 				1A9AD2AD2627223B001495C6 /* Extension */,
-				1A9AD1A52626345D001495C6 /* AwardsView.swift */,
-				1A9AD1A62626345D001495C6 /* Award.swift */,
-				1A9AD1A72626345D001495C6 /* Awards.json */,
-				1A9AD1AB2626345D001495C6 /* EditActionView.swift */,
-				1A9AD1AC2626345D001495C6 /* RenovationHeaderView.swift */,
-				1A9AD1AD2626345D001495C6 /* ActionRowView.swift */,
-				1A9AD1AE2626345D001495C6 /* EditRenovationView.swift */,
-				1A9AD1AF2626345D001495C6 /* RenovationsView.swift */,
-				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
-				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
-				1A9AD1B92626345D001495C6 /* ProductView.swift */,
-				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
-				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
-				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
-				1A9AD1A42626345C001495C6 /* Award */,
-				1A9AD1AA2626345D001495C6 /* Project */,
 				1A9AD1B62626345D001495C6 /* InAppPurchase */,
 				1A9AD1FB2626395F001495C6 /* RenovateUITest */,
 				1A9AD1A82626345D001495C6 /* Preview Content */,
-				1A9AD1A32626345C001495C6 /* Binding-OnChange.swift */,
-				1A9AD1B12626345D001495C6 /* Bundle-Decodable.swift */,
-				1A9AD19B2626345C001495C6 /* Color-Additions.swift */,
 				1A9AD19C2626345C001495C6 /* Colors.xcassets */,
 				1A9AD1B32626345D001495C6 /* ContentView.swift */,
 				1A9AD19D2626345C001495C6 /* DataController.swift */,
-				1A9AD19E2626345C001495C6 /* HomeView.swift */,
-				1A9AD30F26282555001495C6 /* ProjectSummaryView.swift */,
-				1A9AD30B2628230C001495C6 /* ActionListView.swift */,
 				1A9AD1BD2626345E001495C6 /* RenovateApp.swift */,
-				1A9AD19A2626345C001495C6 /* Info.plist */,
-				1A9AD1B22626345D001495C6 /* Action-CoreDataHelpers.swift */,
-				1A9AD1A02626345C001495C6 /* Renovate.entitlements */,
-				1A9AD1A12626345C001495C6 /* Main.xcdatamodeld */,
-				1A9AD1B02626345D001495C6 /* Renovation-CoreDataHelpers.swift */,
-				1A9AD19F2626345C001495C6 /* SelectSomethingView.swift */,
-				1A9AD1B52626345D001495C6 /* Sequence-Sorting.swift */,
 				1A9AD1B42626345D001495C6 /* Assets.xcassets */,
 			);
 			path = Renovate;
@@ -208,6 +183,9 @@
 		1A9AD1A42626345C001495C6 /* Award */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD1A52626345D001495C6 /* AwardsView.swift */,
+				1A9AD1A62626345D001495C6 /* Award.swift */,
+				1A9AD1A72626345D001495C6 /* Awards.json */,
 			);
 			path = Award;
 			sourceTree = "<group>";
@@ -220,16 +198,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A9AD1AA2626345D001495C6 /* Project */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Project;
-			sourceTree = "<group>";
-		};
 		1A9AD1B62626345D001495C6 /* InAppPurchase */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
+				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
+				1A9AD1B92626345D001495C6 /* ProductView.swift */,
+				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
+				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
+				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
 			);
 			path = InAppPurchase;
 			sourceTree = "<group>";
@@ -246,7 +223,13 @@
 		1A9AD2AD2627223B001495C6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD1A32626345C001495C6 /* Binding-OnChange.swift */,
+				1A9AD1B12626345D001495C6 /* Bundle-Decodable.swift */,
+				1A9AD19B2626345C001495C6 /* Color-Additions.swift */,
+				1A9AD1B22626345D001495C6 /* Action-CoreDataHelpers.swift */,
+				1A9AD1B52626345D001495C6 /* Sequence-Sorting.swift */,
 				1A9AD26326271D53001495C6 /* String_Ext.swift */,
+				1A9AD1B02626345D001495C6 /* Renovation-CoreDataHelpers.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -261,6 +244,50 @@
 				1A9AD30526274E87001495C6 /* Accessiblity.strings */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		1A9AD31426283153001495C6 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD1A42626345C001495C6 /* Award */,
+				1A9AD3152628315C001495C6 /* Home */,
+				1A9AD31626283160001495C6 /* Renovations */,
+			);
+			path = Activities;
+			sourceTree = "<group>";
+		};
+		1A9AD3152628315C001495C6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD19E2626345C001495C6 /* HomeView.swift */,
+				1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */,
+				1A9AD30B2628230C001495C6 /* ActionListView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		1A9AD31626283160001495C6 /* Renovations */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD1AF2626345D001495C6 /* RenovationsView.swift */,
+				1A9AD32026283424001495C6 /* RenovationViewModel.swift */,
+				1A9AD1AE2626345D001495C6 /* EditRenovationView.swift */,
+				1A9AD1AC2626345D001495C6 /* RenovationHeaderView.swift */,
+				1A9AD1AD2626345D001495C6 /* ActionRowView.swift */,
+				1A9AD1AB2626345D001495C6 /* EditActionView.swift */,
+				1A9AD19F2626345C001495C6 /* SelectSomethingView.swift */,
+			);
+			path = Renovations;
+			sourceTree = "<group>";
+		};
+		1A9AD31726283215001495C6 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD1A02626345C001495C6 /* Renovate.entitlements */,
+				1A9AD1A12626345C001495C6 /* Main.xcdatamodeld */,
+				1A9AD19A2626345C001495C6 /* Info.plist */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,7 +414,7 @@
 				1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */,
 				1A9AD1CE2626345E001495C6 /* RenovationsView.swift in Sources */,
 				1A9AD1CB2626345E001495C6 /* RenovationHeaderView.swift in Sources */,
-				1A9AD31026282555001495C6 /* ProjectSummaryView.swift in Sources */,
+				1A9AD31026282555001495C6 /* RenovationSummaryView.swift in Sources */,
 				1A9AD1CC2626345E001495C6 /* ActionRowView.swift in Sources */,
 				1A9AD1D02626345E001495C6 /* Bundle-Decodable.swift in Sources */,
 				1A9AD1C12626345E001495C6 /* DataController.swift in Sources */,
@@ -399,6 +426,7 @@
 				1A9AD1BF2626345E001495C6 /* Color-Additions.swift in Sources */,
 				1A9AD1D12626345E001495C6 /* Action-CoreDataHelpers.swift in Sources */,
 				1A9AD1C42626345E001495C6 /* Main.xcdatamodeld in Sources */,
+				1A9AD32126283424001495C6 /* RenovationViewModel.swift in Sources */,
 				1A9AD1CD2626345E001495C6 /* EditRenovationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -596,7 +624,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Renovate/Preview Content\"";
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Renovate/Info.plist;
+				INFOPLIST_FILE = Renovate/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +647,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Renovate/Preview Content\"";
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Renovate/Info.plist;
+				INFOPLIST_FILE = Renovate/Configuration/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,7 +665,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
-				INFOPLIST_FILE = RenovateUITests/Info.plist;
+				INFOPLIST_FILE = RenovateUITest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -656,7 +684,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K8YVKLM6GZ;
-				INFOPLIST_FILE = RenovateUITests/Info.plist;
+				INFOPLIST_FILE = RenovateUITest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
