@@ -49,6 +49,7 @@
 		1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30B2628230C001495C6 /* ActionListView.swift */; };
 		1A9AD31026282555001495C6 /* RenovationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */; };
 		1A9AD32126283424001495C6 /* RenovationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32026283424001495C6 /* RenovationViewModel.swift */; };
+		1A9AD32D26286366001495C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32C26286366001495C6 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		1A9AD30B2628230C001495C6 /* ActionListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionListView.swift; sourceTree = "<group>"; };
 		1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationSummaryView.swift; sourceTree = "<group>"; };
 		1A9AD32026283424001495C6 /* RenovationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationViewModel.swift; sourceTree = "<group>"; };
+		1A9AD32C26286366001495C6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				1A9AD19E2626345C001495C6 /* HomeView.swift */,
+				1A9AD32C26286366001495C6 /* HomeViewModel.swift */,
 				1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */,
 				1A9AD30B2628230C001495C6 /* ActionListView.swift */,
 			);
@@ -412,6 +415,7 @@
 				1A9AD1C52626345E001495C6 /* Binding-OnChange.swift in Sources */,
 				1A9AD1DA2626345E001495C6 /* UnlockView.swift in Sources */,
 				1A9AD30C2628230C001495C6 /* ActionListView.swift in Sources */,
+				1A9AD32D26286366001495C6 /* HomeViewModel.swift in Sources */,
 				1A9AD1CE2626345E001495C6 /* RenovationsView.swift in Sources */,
 				1A9AD1CB2626345E001495C6 /* RenovationHeaderView.swift in Sources */,
 				1A9AD31026282555001495C6 /* RenovationSummaryView.swift in Sources */,

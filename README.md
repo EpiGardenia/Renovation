@@ -35,10 +35,10 @@ RenovationView.swift
 RenovationViewModel.swift.
 
 #### Mechanism
-VM calss is put inside extension of `RenovationView`, but in a seperate file, to seperate core data and view.
+VM calss is put inside extension of `RenovationView`, but in a seperate file, to seperate core data and view for clean code.
 Due to `@FetchRequest` can only work with SwiftUIView, the project uses 
 `NSFetchedResultsController` to fetch the data. 
-When the fetchRequest has been updated,  `controllerDidChangeContent`  will be called, and pass the change to `@Published`, so `RenovationView` get updated. (reactive)
+When the core data has been updated,  `controllerDidChangeContent`  will be called, and pass the change to `@Published`, so `RenovationView` get updated. (reactive)
 
 
 
