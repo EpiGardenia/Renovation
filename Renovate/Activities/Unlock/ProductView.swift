@@ -10,8 +10,8 @@ import StoreKit
 
 struct ProductView: View {
     @EnvironmentObject var unlockManager: UnlockManager
-    let product: SKProduct
-
+   // let product: SKProduct
+    let products: [SKProduct]
 
     var body: some View {
         ScrollView {
@@ -19,10 +19,14 @@ struct ProductView: View {
                 Text("Get Unlimited Renovations")
                     .font(.headline)
                     .padding(.top, 10)
-                Text("You can add three renovations for free, or pay \(product.localizedPrice) to add unlimited renovations")
-                Text("If you already bought the unlock on another device, press Restore Purchases.")
+                
+                Text(String.localizing("You can add three renovation projects for free, or choose below alternatives to add unlimited renovations", tableName: "IAP"))
+                Text(String.localizing("If you already bought the unlock on another device, press Restore Purchases.", tableName: "IAP"))
 
-                Button("Unlock for \(product.localizedPrice)", action: unlock)
+                Button("Unlock for \(products[0].localizedPrice) one time", action: {unlock(0)})
+                    .buttonStyle(PurchaseButton())
+
+                Button("Unlock for \(products[1].localizedPrice) per month", action: {unlock(1)})
                     .buttonStyle(PurchaseButton())
 
                 Button("Restore Purchases", action: unlockManager.restore)
@@ -32,8 +36,8 @@ struct ProductView: View {
         }
     }
 
-    func unlock() {
-        unlockManager.buy(product: product)
+    func unlock(_ choice: Int) {
+        unlockManager.buy(product: products[choice])
     }
 
 }

@@ -13,7 +13,7 @@ extension Renovation {
     static let colors = ["Pink", "Purple", "Red", "Orange", "Gold", "Green", "Teal", "Light Blue", "Dark Blue", "Midnight", "Dark Gray", "Gray"]
 
     var renovationTitle: String {
-        title ?? String.localize("NEW RENOVATION", tableName: "CoreData", comment: "")
+        title ?? String.localizing("NEW RENOVATION", tableName: "CoreData", comment: "")
     }
 
     var renovationDetail: String {

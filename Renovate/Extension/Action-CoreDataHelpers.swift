@@ -14,7 +14,7 @@ extension Action {
     }
     
     var actionTitle: String {
-        title ?? String.localize("New Action", tableName: "CoreData", comment: "Action Title")
+        title ?? String.localizing("New Action", tableName: "CoreData", comment: "Action Title")
     }
 
     var actionDetail: String {

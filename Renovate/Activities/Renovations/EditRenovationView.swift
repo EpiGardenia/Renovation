@@ -46,19 +46,19 @@ struct EditRenovationView: View {
 
             Section(footer: Text("Closing a renovation moves it from the Open to Closed tab; deleting it removes the renovation completely.")) {
                 Button(renovation.closed ?
-                        String.localize("Reopen this renovation", comment:"") :
-                        String.localize("Close this renovation", comment: "")) {
+                        String.localizing("Reopen this renovation", comment:"") :
+                        String.localizing("Close this renovation", comment: "")) {
                     renovation.closed.toggle()
                     update()
                 }
 
-                Button(String.localize("Delete this renovation", tableName: "Renovation", comment: "under EditRenovationView")) {
+                Button(String.localizing("Delete this renovation", tableName: "Renovation", comment: "under EditRenovationView")) {
                     showingDeleteConfirm.toggle()
                 }
                 .accentColor(.red)
             }
         }
-        .navigationTitle(String.localize("Edit Renovation", comment:""))
+        .navigationTitle(String.localizing("Edit Renovation", comment:""))
         .onDisappear(perform: dataController.save)
         .alert(isPresented: $showingDeleteConfirm) {
             Alert(title: Text("Delete renovation?"), message: Text("Are you sure you want to delete this renovation? You will also delete all the actions it contains."), primaryButton: .default(Text("Delete"), action: delete), secondaryButton: .cancel())

@@ -11,7 +11,7 @@ import StoreKit
 class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, SKProductsRequestDelegate {
     enum RequestState {
         case loading // about to start, but not yet get request
-        case loaded(SKProduct)  // request from apple which products are available from our store for purchase
+        case loaded([SKProduct])  // request from apple which products are available from our store for purchase
         case failed(Error?)  // sth went wrong
         case purchased // successfully buy IAP or restore IAP
         case deferred  // current user doesn't have permission to buy
@@ -64,8 +64,10 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
                         self.requestState = .purchased
                         queue.finishTransaction(transaction)
                     case .failed:
-                        if let product = loadedProducts.first {
-                            self.requestState = .loaded(product)
+                        let products = loadedProducts
+                        if !products.isEmpty {
+                       // if let product = loadedProducts.first {
+                            self.requestState = .loaded(products)
                         } else {
                             self.requestState = .failed(transaction.error)
                         }
@@ -88,7 +90,14 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         DispatchQueue.main.async {
             self.loadedProducts = response.products
-            guard let unlock = self.loadedProducts.first else {
+//            guard let unlock = self.loadedProducts.first else {
+//                print("ALERT: Missing load product ")
+//                self.requestState = .failed(StoreError.missingProduct)
+//                return
+//            }
+
+            let unlocks = self.loadedProducts
+            guard !unlocks.isEmpty else {
                 print("ALERT: Missing load product ")
                 self.requestState = .failed(StoreError.missingProduct)
                 return
@@ -101,7 +110,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
             }
 
 
-            self.requestState = .loaded(unlock)
+            self.requestState = .loaded(unlocks)
 
         }
 

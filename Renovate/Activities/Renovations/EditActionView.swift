@@ -38,10 +38,10 @@ struct EditActionView: View {
             }
 
             Section {
-                Toggle(String.localize("Mark Completed",comment: "") , isOn: $completed.onChange(update))
+                Toggle(String.localizing("Mark Completed",comment: "") , isOn: $completed.onChange(update))
             }
         }
-        .navigationTitle(String.localize("Edit Action", comment: ""))
+        .navigationTitle(String.localizing("Edit Action", comment: ""))
         .onDisappear(perform: dataController.save)
     }
 

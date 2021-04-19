@@ -58,7 +58,7 @@ struct RenovationsView: View {
                                 viewModel.addAction(to: renovation)
                             }
                         } label: {
-                            Label(String.localize("Add New Action", comment: "Add new action"),
+                            Label(String.localizing("Add New Action", comment: "Add new action"),
                                   systemImage: "plus")
                         }
                     }
@@ -76,9 +76,9 @@ struct RenovationsView: View {
                 }} label: {
                     // To avoid voiceover automatically say "+" as "Add" automatically
                     if UIAccessibility.isVoiceOverRunning {
-                        Text(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"))
+                        Text(String.localizing("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"))
                     } else {
-                        Label(String.localize("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"), systemImage: "plus")
+                        Label(String.localizing("Add Renovation", tableName: "Renovation", comment: "Add new Renovation button"), systemImage: "plus")
                     }
                 }
             }
@@ -90,7 +90,7 @@ struct RenovationsView: View {
             Button {
                 showingSortOrder.toggle()
             } label: {
-                Label(String.localize("Sort", tableName: "Renovation", comment: "")
+                Label(String.localizing("Sort", tableName: "Renovation", comment: "")
                       , systemImage: "arrow.up.arrow.down")
             }
         }
@@ -108,8 +108,8 @@ struct RenovationsView: View {
                 }
             } // end of Group
             .navigationTitle(viewModel.showClosedRenovations ?
-                                String.localize("Closed Renovations", tableName: "Renovation", comment: ""):
-                                String.localize("Open Renovations", tableName: "Renovation", comment: ""))
+                                String.localizing("Closed Renovations", tableName: "Renovation", comment: ""):
+                                String.localizing("Open Renovations", tableName: "Renovation", comment: ""))
             .toolbar {
                 addRenovationToolbarItem
                 sortRenovationToolbarItem

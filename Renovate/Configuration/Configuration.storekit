@@ -20,7 +20,41 @@
 
   },
   "subscriptionGroups" : [
+    {
+      "id" : "1FE743BF",
+      "localizations" : [
 
+      ],
+      "name" : "Unlock Subscription",
+      "subscriptions" : [
+        {
+          "adHocOffers" : [
+
+          ],
+          "displayPrice" : "0.99",
+          "familyShareable" : false,
+          "groupNumber" : 1,
+          "internalID" : "9F92E502",
+          "introductoryOffer" : {
+            "internalID" : "5CCF3BC5",
+            "paymentMode" : "free",
+            "subscriptionPeriod" : "P2W"
+          },
+          "localizations" : [
+            {
+              "description" : "",
+              "displayName" : "",
+              "locale" : "en_US"
+            }
+          ],
+          "productID" : "Freedom.Renovate.unlock",
+          "recurringSubscriptionPeriod" : "P1M",
+          "referenceName" : "UnlockSub_0.99",
+          "subscriptionGroupID" : "1FE743BF",
+          "type" : "RecurringSubscription"
+        }
+      ]
+    }
   ],
   "version" : {
     "major" : 1,
