@@ -34,7 +34,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
 
     init(dataController: DataController) {
         self.dataController = dataController
-        let productIDs = Set(["com.temporary.inAppPurchase"])
+        let productIDs = Set(["Freedom.Renovate.unlock"])
         request = SKProductsRequest(productIdentifiers: productIDs)
 
         super.init()
@@ -42,11 +42,14 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
 
         SKPaymentQueue.default().add(self)  // Tell us if anything happen
 
-        guard dataController.fullVersionUnlocked == false else {return}
+        guard dataController.fullVersionUnlocked == false else { return }
         request.delegate = self
         request.start()
     }
 
+    deinit {
+        SKPaymentQueue.default().remove(self)
+    }
 
 
     // when app is termniated, one should remove oneself from observer queue
@@ -86,6 +89,7 @@ class UnlockManager: NSObject, ObservableObject, SKPaymentTransactionObserver, S
         DispatchQueue.main.async {
             self.loadedProducts = response.products
             guard let unlock = self.loadedProducts.first else {
+                print("ALERT: Missing load product ")
                 self.requestState = .failed(StoreError.missingProduct)
                 return
             }

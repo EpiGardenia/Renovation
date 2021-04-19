@@ -50,6 +50,8 @@
 		1A9AD31026282555001495C6 /* RenovationSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */; };
 		1A9AD32126283424001495C6 /* RenovationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32026283424001495C6 /* RenovationViewModel.swift */; };
 		1A9AD32D26286366001495C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32C26286366001495C6 /* HomeViewModel.swift */; };
+		1A9AD333262CC8C5001495C6 /* IAP.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD332262CC8C5001495C6 /* IAP.strings */; };
+		1A9AD337262CC94E001495C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9AD336262CC94E001495C6 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +117,8 @@
 		1A9AD30F26282555001495C6 /* RenovationSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationSummaryView.swift; sourceTree = "<group>"; };
 		1A9AD32026283424001495C6 /* RenovationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenovationViewModel.swift; sourceTree = "<group>"; };
 		1A9AD32C26286366001495C6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		1A9AD332262CC8C5001495C6 /* IAP.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = IAP.strings; sourceTree = "<group>"; };
+		1A9AD336262CC94E001495C6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A5E1E0C25F6C85F006EB207 /* CloudKit.framework in Frameworks */,
+				1A9AD337262CC94E001495C6 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +167,6 @@
 				1A9AD31426283153001495C6 /* Activities */,
 				1A9AD2BE26272A3C001495C6 /* Localization */,
 				1A9AD2AD2627223B001495C6 /* Extension */,
-				1A9AD1B62626345D001495C6 /* InAppPurchase */,
 				1A9AD1FB2626395F001495C6 /* RenovateUITest */,
 				1A9AD1A82626345D001495C6 /* Preview Content */,
 				1A9AD19C2626345C001495C6 /* Colors.xcassets */,
@@ -177,6 +181,7 @@
 		1A5E1E0A25F6C85F006EB207 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD336262CC94E001495C6 /* StoreKit.framework */,
 				1A5E1E0B25F6C85F006EB207 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -200,19 +205,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		1A9AD1B62626345D001495C6 /* InAppPurchase */ = {
-			isa = PBXGroup;
-			children = (
-				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
-				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
-				1A9AD1B92626345D001495C6 /* ProductView.swift */,
-				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
-				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
-				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
-			);
-			path = InAppPurchase;
-			sourceTree = "<group>";
-		};
 		1A9AD1FB2626395F001495C6 /* RenovateUITest */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,6 +217,7 @@
 		1A9AD2AD2627223B001495C6 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD1B72626345D001495C6 /* SKProduct-LocalizedPrice.swift */,
 				1A9AD1A32626345C001495C6 /* Binding-OnChange.swift */,
 				1A9AD1B12626345D001495C6 /* Bundle-Decodable.swift */,
 				1A9AD19B2626345C001495C6 /* Color-Additions.swift */,
@@ -244,6 +237,7 @@
 				1A9AD2DF26274073001495C6 /* Localizable.strings */,
 				1A9AD2E526274108001495C6 /* Localizable.stringsdict */,
 				1A9AD30526274E87001495C6 /* Accessiblity.strings */,
+				1A9AD332262CC8C5001495C6 /* IAP.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -253,6 +247,7 @@
 			children = (
 				1A9AD1A42626345C001495C6 /* Award */,
 				1A9AD3152628315C001495C6 /* Home */,
+				1A9AD33C262CD3F4001495C6 /* Unlock */,
 				1A9AD31626283160001495C6 /* Renovations */,
 			);
 			path = Activities;
@@ -289,8 +284,20 @@
 				1A9AD1A02626345C001495C6 /* Renovate.entitlements */,
 				1A9AD1A12626345C001495C6 /* Main.xcdatamodeld */,
 				1A9AD19A2626345C001495C6 /* Info.plist */,
+				1A9AD1BA2626345D001495C6 /* Configuration.storekit */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		1A9AD33C262CD3F4001495C6 /* Unlock */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD1B82626345D001495C6 /* UnlockManager.swift */,
+				1A9AD1B92626345D001495C6 /* ProductView.swift */,
+				1A9AD1BB2626345D001495C6 /* PurchaseButton.swift */,
+				1A9AD1BC2626345D001495C6 /* UnlockView.swift */,
+			);
+			path = Unlock;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -375,6 +382,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A9AD1C02626345E001495C6 /* Colors.xcassets in Resources */,
+				1A9AD333262CC8C5001495C6 /* IAP.strings in Resources */,
 				1A9AD1D82626345E001495C6 /* Configuration.storekit in Resources */,
 				1A9AD2FC2627484A001495C6 /* README.md in Resources */,
 				1A9AD1C82626345E001495C6 /* Awards.json in Resources */,

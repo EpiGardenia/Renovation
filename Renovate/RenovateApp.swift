@@ -28,6 +28,7 @@ struct RenovateApp: App {
                 .environmentObject(unlockManager)
                 // so the change is saved if user leave the app in the middle of editing
                 .onReceive(NotificationCenter.default.publisher(for: UIApplication.willResignActiveNotification), perform: save)
+                .onAppear(perform: dataController.appLaunched)
         }
     }
 

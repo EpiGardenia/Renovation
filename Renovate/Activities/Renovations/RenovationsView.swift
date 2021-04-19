@@ -123,6 +123,11 @@ struct RenovationsView: View {
             }
             SelectSomethingView()
         }
+        .sheet(isPresented: $viewModel.showingUnlockView) {
+            UnlockView()
+        }
+
+
     }
 
 }

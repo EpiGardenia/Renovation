@@ -7,6 +7,7 @@
 
 import CoreData
 import SwiftUI
+import StoreKit
 
 class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data
@@ -136,4 +137,15 @@ class DataController: ObservableObject {
 
         return dataController
     }()
+
+
+
+    func appLaunched() {
+        guard count(for: Renovation.fetchRequest()) >= 5 else { return }
+        let allScenes = UIApplication.shared.connectedScenes
+        let scene = allScenes.first { $0.activationState == .foregroundActive }
+        if let windowScene = scene as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
+    }
 }

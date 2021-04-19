@@ -18,6 +18,8 @@ extension RenovationsView {
         private let renovationController: NSFetchedResultsController<Renovation>
         @Published var renovations = [Renovation]()
 
+        @Published var showingUnlockView = false
+
         init(dataController: DataController, showClosedRenovations: Bool) {
             self.showClosedRenovations = showClosedRenovations
             self.dataController = dataController
@@ -49,10 +51,15 @@ extension RenovationsView {
         }
 
         func addRenovation() {
+            let canCreate = dataController.fullVersionUnlocked || (dataController.count(for: Renovation.fetchRequest()) < 3)
+            if canCreate {
                 let renovation = Renovation(context: dataController.container.viewContext)
                 renovation.closed = false
                 renovation.creationDate = Date()
                 dataController.save()
+            } else {
+                showingUnlockView.toggle()
+            }
         }
 
         func addAction(to renovation: Renovation){

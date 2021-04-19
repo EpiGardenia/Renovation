@@ -41,6 +41,18 @@ Due to `@FetchRequest` can only work with SwiftUIView, the project uses
 When the core data has been updated,  `controllerDidChangeContent`  will be called, and pass the change to `@Published`, so `RenovationView` get updated. (reactive)
 
 
+### In-App-Purchase
+The project choose one non-consumble product as example. 
+With configuration of *.storekit, and change in Edit Scheme. 
+It is possible to simulate purchase with Xcode.
+
+As well with a UI to show available products.
+
+### Ask for Review
+If the user is active using the app (t.e.x. purchased and having more than 5 projects)
+Then we ask for review upon start.
+Tool: SKStoreReviewController API
+
 
 ## Credits
 Thanks for the teaching of Paul Hudson in *Hacking With Swift* 
