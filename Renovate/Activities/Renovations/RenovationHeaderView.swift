@@ -18,7 +18,6 @@ struct RenovationHeaderView: View {
                     .padding(.bottom, 10)
                 ProgressView(value: renovation.completionAmount)
                     .accentColor(Color(renovation.renovationColor))
-
             }
 
             Spacer()

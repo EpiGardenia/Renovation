@@ -18,6 +18,15 @@ extension HomeView {
         @Published var actions = [Action]()
         
         var dataController: DataController
+
+
+        var upNext: ArraySlice<Action> {
+            actions.prefix(3)
+        }
+
+        var moreToExplore: ArraySlice<Action> {
+            actions.dropFirst(3)
+        }
         
         init(dataController: DataController) {
             self.dataController = dataController
@@ -64,6 +73,20 @@ extension HomeView {
             } catch {
                 print("Failed to fetch initial data.")
             }
+        }
+
+        func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+            if let newActions = controller.fetchedObjects as? [Action] {
+                actions = newActions
+            } else if let newRenovations = controller.fetchedObjects as? [Renovation] {
+                renovations = newRenovations
+            }
+        }
+
+
+        func addSampleData() {
+            dataController.deleteAll()
+            try? dataController.createSampleData()
         }
     }
 }

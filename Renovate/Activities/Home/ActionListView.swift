@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ActionListView: View {
     let title: LocalizedStringKey
-    let actions: FetchedResults<Action>.SubSequence
+    let actions: ArraySlice<Action> //FetchedResults<Action>.SubSequence
     var body: some View {
         if actions.isEmpty {
             EmptyView()
