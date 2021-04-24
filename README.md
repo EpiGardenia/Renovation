@@ -31,14 +31,20 @@ VoiceOver: label, trait, hint, children
 Major Core data
 #### View
 RenovationView.swift
+HomeView
+ActionRowView
 #### ViewModel
 RenovationViewModel.swift.
+HomeViewModel
+ActionRowViewModel
 
 #### Mechanism
 VM calss is put inside extension of `RenovationView`, but in a seperate file, to seperate core data and view for clean code.
 Due to `@FetchRequest` can only work with SwiftUIView, the project uses 
 `NSFetchedResultsController` to fetch the data. 
 When the core data has been updated,  `controllerDidChangeContent`  will be called, and pass the change to `@Published`, so `RenovationView` get updated. (reactive)
+
+Seperate conditional viewItems into conditional `colorName: String`, `systemImageName: String`  from view
 
 
 ### In-App-Purchase
@@ -52,6 +58,22 @@ As well with a UI to show available products.
 If the user is active using the app (t.e.x. purchased and having more than 5 projects)
 Then we ask for review upon start.
 Tool: SKStoreReviewController API
+
+
+### Spotlight (Search in iOS home screem)
+#### Searchable
+To be able to search Renovation and action in spotlight,  we need to:
+1. Create an unique identifier 
+    => using objectID of Action  
+2. Choose suitable attributes
+   => using title and contentDescription
+3. Wrap up 1 & 2 in a record with a domain identifier. 
+  => using objectID of Renovation 
+4. Send 3. to Spotlight for indexing
+
+
+
+
 
 
 ## Credits

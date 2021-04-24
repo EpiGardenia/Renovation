@@ -8,6 +8,7 @@
 import CoreData
 import SwiftUI
 import StoreKit
+import CoreSpotlight
 
 class DataController: ObservableObject {
     /// The lone CloudKit container used to store all our data
@@ -147,5 +148,32 @@ class DataController: ObservableObject {
         if let windowScene = scene as? UIWindowScene {
             SKStoreReviewController.requestReview(in: windowScene)
         }
+    }
+
+
+    /* MARK: Spotlight */
+    func update(_ action: Action) {
+        // 1. Create unique identifier
+        let actionID = action.objectID.uriRepresentation().absoluteString
+
+        // Create DomainID
+        let renovationID = action.renovation?.objectID.uriRepresentation().absoluteString
+
+        // 2. Select attributes
+        let attributeSet = CSSearchableItemAttributeSet(contentType: .text)
+        attributeSet.title = action.title
+        attributeSet.contentDescription = action.detail
+
+        // 3. Wrap together
+        let searchableItem = CSSearchableItem(
+            uniqueIdentifier: actionID,
+            domainIdentifier: renovationID,
+            attributeSet: attributeSet
+        )
+
+        // 4. Send to Core Spotlight for indexing
+        CSSearchableIndex.default().indexSearchableItems([searchableItem])
+
+        save()
     }
 }

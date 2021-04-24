@@ -10,7 +10,8 @@ import SwiftUI
 
 
 struct EditRenovationView: View {
-    let renovation: Renovation
+   // @ObservedObject var
+        let renovation: Renovation
     @EnvironmentObject var dataController: DataController
     @Environment(\.presentationMode) var presentationMode
     @State private var showingDeleteConfirm = false

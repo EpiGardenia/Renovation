@@ -42,7 +42,7 @@ struct EditActionView: View {
             }
         }
         .navigationTitle(String.localizing("Edit Action", comment: ""))
-        .onDisappear(perform: dataController.save)
+        .onDisappear(perform: save)
     }
 
     func update() {
@@ -51,6 +51,10 @@ struct EditActionView: View {
         action.detail = detail
         action.priority = Int16(priority)
         action.completed = completed
+    }
+
+    func save() {
+        dataController.update(action)
     }
 
 
