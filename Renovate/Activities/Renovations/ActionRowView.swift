@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ActionRowView: View {
-    @ObservedObject var renovation: Renovation
-    // thus we catch the "objectwillchange" in update() of EditActionView
+    @StateObject var viewModel: ViewModel
     @ObservedObject var action: Action
 
     var body: some View {
@@ -17,38 +16,17 @@ struct ActionRowView: View {
             Label {
                 Text(action.actionTitle)
             } icon: {
-                icon
+                Image(systemName: viewModel.icon)
+                    .foregroundColor(viewModel.color.map { Color($0) } ?? .clear )
             }
         }
-        .accessibilityLabel(label)
+        .accessibilityLabel(Text(viewModel.label))
     }
 
-    /*
-     computed properties conventionally have a constant complexity, or O(1) in Big O notation, meaning that they always take the same amount of time to run regardless of input or program state.
-     p.s. func icon() -> some View works too.
-     */
-    var icon: some View {
-        if action.completed {
-            return Image(systemName: "checkmark.circle")
-                .foregroundColor(Color(renovation.renovationColor))
-        } else if action.priority == 3 {
-            return Image(systemName: "exclamationmark.triangle")
-                .foregroundColor(Color(renovation.renovationColor))
-        } else {
-            return Image(systemName: "checkmark.circle")
-                .foregroundColor(.clear)
-        }
-    }
-
-
-    var label: Text {
-        if action.completed {
-            return Text("\(action.actionTitle), completed.")
-        } else if action.priority == 3 {
-            return Text("\(action.actionTitle), high priority.")
-        } else {
-            return Text(action.actionTitle)
-        }
+    init(renovation: Renovation, action: Action) {
+        let viewModel = ViewModel(renovation: renovation, action: action)
+        _viewModel = StateObject(wrappedValue: viewModel)
+        self.action = action
     }
 }
 

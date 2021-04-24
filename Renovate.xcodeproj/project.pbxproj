@@ -52,6 +52,7 @@
 		1A9AD32D26286366001495C6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD32C26286366001495C6 /* HomeViewModel.swift */; };
 		1A9AD337262CC94E001495C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9AD336262CC94E001495C6 /* StoreKit.framework */; };
 		1A9AD341262DD957001495C6 /* IAP.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD343262DD957001495C6 /* IAP.strings */; };
+		1A9AD3B02633FDCC001495C6 /* ActionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD3AF2633FDCC001495C6 /* ActionRowViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,7 @@
 		1A9AD336262CC94E001495C6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		1A9AD342262DD957001495C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IAP.strings; sourceTree = "<group>"; };
 		1A9AD346262DD95A001495C6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/IAP.strings; sourceTree = "<group>"; };
+		1A9AD3AF2633FDCC001495C6 /* ActionRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRowViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +275,7 @@
 				1A9AD1AE2626345D001495C6 /* EditRenovationView.swift */,
 				1A9AD1AC2626345D001495C6 /* RenovationHeaderView.swift */,
 				1A9AD1AD2626345D001495C6 /* ActionRowView.swift */,
+				1A9AD3AF2633FDCC001495C6 /* ActionRowViewModel.swift */,
 				1A9AD1AB2626345D001495C6 /* EditActionView.swift */,
 				1A9AD19F2626345C001495C6 /* SelectSomethingView.swift */,
 			);
@@ -411,6 +414,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A9AD3B02633FDCC001495C6 /* ActionRowViewModel.swift in Sources */,
 				1A9AD26426271D53001495C6 /* String_Ext.swift in Sources */,
 				1A9AD2132627087F001495C6 /* RenovateUITests.xctest in Sources */,
 				1A9AD1C22626345E001495C6 /* HomeView.swift in Sources */,
