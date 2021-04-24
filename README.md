@@ -62,7 +62,7 @@ Tool: SKStoreReviewController API
 
 ### Spotlight (Search in iOS home screem)
 #### Searchable
-To be able to search Renovation and action in spotlight,  we need to:
+To be able to search Action in spotlight,  we need to:
 1. Create an unique identifier 
     => using objectID of Action  
 2. Choose suitable attributes
@@ -72,6 +72,14 @@ To be able to search Renovation and action in spotlight,  we need to:
 4. Send 3. to Spotlight for indexing
 
 
+#### Open <Action Item> directly from iOS Home
+Listen to `onContinueUserActivity`
+if it is called with correct search type, 
+using `navigationLink` to programatically switch to the specific `EditActionView`
+
+
+### Delete index when delete Renovations and actions
+`CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])`
 
 
 

@@ -22,7 +22,6 @@ class DataController: ObservableObject {
     var fullVersionUnlocked: Bool {
         get {
             defaults.bool(forKey: "fullVersionUnlocked")
-
         }
         set {
             defaults.set(newValue, forKey: "fullVersionUnlocked")
@@ -90,6 +89,13 @@ class DataController: ObservableObject {
     }
 
     func delete(_ object: NSManagedObject) {
+        let id = object.objectID.uriRepresentation().absoluteString
+
+        if object is Action {
+            CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])
+        } else {
+            CSSearchableIndex.default().deleteSearchableItems(withDomainIdentifiers: [id])
+        }
         container.viewContext.delete(object)
     }
 
@@ -152,6 +158,7 @@ class DataController: ObservableObject {
 
 
     /* MARK: Spotlight */
+    // Action -> objectID -> URI -> String
     func update(_ action: Action) {
         // 1. Create unique identifier
         let actionID = action.objectID.uriRepresentation().absoluteString
@@ -176,4 +183,18 @@ class DataController: ObservableObject {
 
         save()
     }
+
+    /* Find Action from actionID */
+    // String -> URL -> objectID -> Action
+    func action(with uniqueIdentifier: String) -> Action? {
+        guard let url = URL(string: uniqueIdentifier) else {
+            return nil
+        }
+        guard let id = container.persistentStoreCoordinator.managedObjectID(forURIRepresentation: url) else {
+            return nil
+        }
+        return try? container.viewContext.existingObject(with: id) as? Action
+    }
+
+
 }

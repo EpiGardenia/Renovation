@@ -9,6 +9,7 @@
 import CoreData
 
 
+
 extension HomeView {
     class ViewModel: NSObject, ObservableObject, NSFetchedResultsControllerDelegate {
         private let renovationsController: NSFetchedResultsController<Renovation>
@@ -88,5 +89,15 @@ extension HomeView {
             dataController.deleteAll()
             try? dataController.createSampleData()
         }
+
+
+        /* MARK: Spotlight */
+        @Published var selectedAction: Action?
+        func selectAction(with identifier: String) {
+            selectedAction = dataController.action(with: identifier)
+        }
+
+
     }
+
 }
