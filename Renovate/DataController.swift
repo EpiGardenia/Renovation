@@ -157,6 +157,21 @@ class DataController: ObservableObject {
     }
 
 
+    @discardableResult func addRenovation() -> Bool {
+        let canCreate = fullVersionUnlocked || (count(for: Renovation.fetchRequest()) < 3)
+        if canCreate {
+            let renovation = Renovation(context: container.viewContext)
+            renovation.closed = false
+            renovation.creationDate = Date()
+            save()
+            return true
+        } else {
+            return false
+        }
+    }
+
+
+
     /* MARK: Spotlight */
     // Action -> objectID -> URI -> String
     func update(_ action: Action) {

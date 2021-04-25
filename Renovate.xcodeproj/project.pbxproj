@@ -53,6 +53,8 @@
 		1A9AD337262CC94E001495C6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A9AD336262CC94E001495C6 /* StoreKit.framework */; };
 		1A9AD341262DD957001495C6 /* IAP.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1A9AD343262DD957001495C6 /* IAP.strings */; };
 		1A9AD3B02633FDCC001495C6 /* ActionRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD3AF2633FDCC001495C6 /* ActionRowViewModel.swift */; };
+		1A9AD3EC26352CAB001495C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD3EB26352CAB001495C6 /* AppDelegate.swift */; };
+		1A9AD3F026352CB8001495C6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9AD3EF26352CB8001495C6 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +124,8 @@
 		1A9AD342262DD957001495C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/IAP.strings; sourceTree = "<group>"; };
 		1A9AD346262DD95A001495C6 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/IAP.strings; sourceTree = "<group>"; };
 		1A9AD3AF2633FDCC001495C6 /* ActionRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionRowViewModel.swift; sourceTree = "<group>"; };
+		1A9AD3EB26352CAB001495C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		1A9AD3EF26352CB8001495C6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,7 @@
 		1A5E1DF025F6C4A5006EB207 /* Renovate */ = {
 			isa = PBXGroup;
 			children = (
+				1A9AD3EA26352C8E001495C6 /* QuickAction */,
 				1A9AD31726283215001495C6 /* Configuration */,
 				1A9AD31426283153001495C6 /* Activities */,
 				1A9AD2BE26272A3C001495C6 /* Localization */,
@@ -304,6 +309,15 @@
 			path = Unlock;
 			sourceTree = "<group>";
 		};
+		1A9AD3EA26352C8E001495C6 /* QuickAction */ = {
+			isa = PBXGroup;
+			children = (
+				1A9AD3EB26352CAB001495C6 /* AppDelegate.swift */,
+				1A9AD3EF26352CB8001495C6 /* SceneDelegate.swift */,
+			);
+			path = QuickAction;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -422,6 +436,7 @@
 				1A9AD1D92626345E001495C6 /* PurchaseButton.swift in Sources */,
 				1A9AD1C62626345E001495C6 /* AwardsView.swift in Sources */,
 				1A9AD1D62626345E001495C6 /* UnlockManager.swift in Sources */,
+				1A9AD3EC26352CAB001495C6 /* AppDelegate.swift in Sources */,
 				1A9AD1DB2626345E001495C6 /* RenovateApp.swift in Sources */,
 				1A9AD1D72626345E001495C6 /* ProductView.swift in Sources */,
 				1A9AD1D42626345E001495C6 /* Sequence-Sorting.swift in Sources */,
@@ -442,6 +457,7 @@
 				1A9AD1C72626345E001495C6 /* Award.swift in Sources */,
 				1A9AD1BF2626345E001495C6 /* Color-Additions.swift in Sources */,
 				1A9AD1D12626345E001495C6 /* Action-CoreDataHelpers.swift in Sources */,
+				1A9AD3F026352CB8001495C6 /* SceneDelegate.swift in Sources */,
 				1A9AD1C42626345E001495C6 /* Main.xcdatamodeld in Sources */,
 				1A9AD32126283424001495C6 /* RenovationViewModel.swift in Sources */,
 				1A9AD1CD2626345E001495C6 /* EditRenovationView.swift in Sources */,

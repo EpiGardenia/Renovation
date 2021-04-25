@@ -60,6 +60,9 @@ Then we ask for review upon start.
 Tool: SKStoreReviewController API
 
 
+
+
+
 ### Spotlight (Search in iOS home screem)
 #### Searchable
 To be able to search Action in spotlight,  we need to:
@@ -78,8 +81,21 @@ if it is called with correct search type,
 using `navigationLink` to programatically switch to the specific `EditActionView`
 
 
-### Delete index when delete Renovations and actions
+#### Delete index when delete Renovations and actions
 `CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])`
+
+
+### Quick Action
+1. Create URL of application in Target/info
+2. Add UIApplicationShortcutItem in info.plist
+3. Create AppDelegate and SceneDelegate class
+4. On ContentView, listen to `.onOpenURL`
+
+
+### Shortcut
+(After Spotlight and Quick Action in place as above)
+1. Create new `NSUserActivityTypes` in info.plist
+2. Define and listen to `onContinueUserActivity`
 
 
 

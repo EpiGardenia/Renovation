@@ -26,6 +26,8 @@ struct ContentView: View {
 
      */
     @SceneStorage("selectedView") var selectedView: String?
+    private let newRenovationActivity = "Freedom.Renovate.newRenovation"
+
     var body: some View {
         TabView(selection: $selectedView) {
             HomeView(dataController: dataController)
@@ -58,10 +60,29 @@ struct ContentView: View {
         }
         // Sportlight
         .onContinueUserActivity(CSSearchableItemActionType, perform: moveToHome)
+        // Shortcut
+        .onContinueUserActivity(newRenovationActivity, perform: createRenovation)
+        .userActivity(newRenovationActivity) { activity in
+            activity.title = "New Renovation"
+            activity.isEligibleForPrediction = true
+        }
+        // Quick Action
+        .onOpenURL(perform: openURL)
     }
 
     func moveToHome(_ input: Any) {
         selectedView = HomeView.tag
+    }
+
+
+    func openURL(_ url: URL) {
+        selectedView = RenovationsView.openTag
+        dataController.addRenovation()
+    }
+
+    func createRenovation(_ userActivity: NSUserActivity) {
+        selectedView = RenovationsView.openTag
+        dataController.addRenovation()
     }
 }
 

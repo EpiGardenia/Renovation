@@ -67,7 +67,7 @@ class RenovateUITests: XCTestCase {
         app.buttons["add"].tap()
         XCTAssertEqual(app.tables.cells.count, 1, "There should be 1 list row after adding a renovation.")
 
-        app.buttons["NEW RENOVATION"].tap()
+        app.buttons["New Renovation"].tap()
         app.textFields["Renovation name"].tap()
 
         /*
@@ -85,6 +85,6 @@ class RenovateUITests: XCTestCase {
 
         app.buttons["Open Renovations"].tap()
 
-        XCTAssertTrue(app.buttons["NEW RENOVATION 2"].exists, "The new renovation name should be visible in the list.")
+        XCTAssertTrue(app.buttons["New Renovation 2"].exists, "The new renovation name should be visible in the list.")
     }
 }

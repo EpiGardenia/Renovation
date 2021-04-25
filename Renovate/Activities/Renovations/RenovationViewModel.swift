@@ -51,15 +51,18 @@ extension RenovationsView {
         }
 
         func addRenovation() {
-            let canCreate = dataController.fullVersionUnlocked || (dataController.count(for: Renovation.fetchRequest()) < 3)
-            if canCreate {
-                let renovation = Renovation(context: dataController.container.viewContext)
-                renovation.closed = false
-                renovation.creationDate = Date()
-                dataController.save()
-            } else {
+            if dataController.addRenovation() == false {
                 showingUnlockView.toggle()
             }
+//            let canCreate = dataController.fullVersionUnlocked || (dataController.count(for: Renovation.fetchRequest()) < 3)
+//            if canCreate {
+//                let renovation = Renovation(context: dataController.container.viewContext)
+//                renovation.closed = false
+//                renovation.creationDate = Date()
+//                dataController.save()
+//            } else {
+//                showingUnlockView.toggle()
+//            }
         }
 
         func addAction(to renovation: Renovation){

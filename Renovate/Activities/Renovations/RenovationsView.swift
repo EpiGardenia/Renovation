@@ -126,8 +126,13 @@ struct RenovationsView: View {
         .sheet(isPresented: $viewModel.showingUnlockView) {
             UnlockView()
         }
+        .onOpenURL(perform: openURL)
+    }
 
 
+
+    func openURL(_ url: URL) {
+        viewModel.addRenovation()
     }
 
 }
