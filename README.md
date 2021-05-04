@@ -2,6 +2,14 @@
 
 SwiftUI, ios14, xcode12
 
+## Demo
+
+<img src="Demo/Award.png" width="200" height="400">
+<img src="Demo/Purchase.png" width="200" height="400"> 
+<img src="Demo/QuickAction.png" width="200" height="400"> <img src="Demo/Shortcut.png" width="200" height="400"> <img src="Demo/Siri.png" width="200" height="400">
+<img src="Demo/EditAction.png"width="200" height="400"> <img src="Demo/EditRenovation.png" width="200" height="400">
+<img src="Demo/Home.png" width="200" height="400"><img src="Demo/OpenProject.png" width="200" height="400">
+
 ## App Description
 Not only for house, but also for your life!
 
@@ -96,6 +104,8 @@ using `navigationLink` to programatically switch to the specific `EditActionView
 (After Spotlight and Quick Action in place as above)
 1. Create new `NSUserActivityTypes` in info.plist
 2. Define and listen to `onContinueUserActivity`
+
+
 
 
 
