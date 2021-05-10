@@ -22,16 +22,16 @@ Renovate App is here to serve you!
 ## IOS, SwiftUI Technical Details
 This is portfolio app, so here are details of different skills applied. 
 
-### Localization
+### :round_pushpin: Localization
 Localizable.strings: English (sysetm), Swedish
 Localizable.stringsdict: Localize the variable format in sentence ( e.g. 1 apple, 2 apples)
 Use `genstrings -SwiftUI *.swift -s localize -o .`  with string extension to internationalize all strings
 Use tablename to category localization strings to be more maintainable
 
-### Accessibility
+### :mens: Accessibility
 VoiceOver: label, trait, hint, children
  
- ### Design Pattern: MVVM
+ ### :spades: Design Pattern: MVVM
 #### Model
 Major Core data
 #### View
@@ -52,14 +52,14 @@ When the core data has been updated,  `controllerDidChangeContent`  will be call
 Seperate conditional viewItems into conditional `colorName: String`, `systemImageName: String`  from view
 
 
-### In-App-Purchase
+### :moneybag: In-App-Purchase
 The project choose one non-consumble product as example. 
 With configuration of *.storekit, and change in Edit Scheme. 
 It is possible to simulate purchase with Xcode.
 
 As well with a UI to show available products.
 
-### Ask for Review
+### :rocket: Ask for Review
 If the user is active using the app (t.e.x. purchased and having more than 5 projects)
 Then we ask for review upon start.
 Tool: SKStoreReviewController API
@@ -68,7 +68,7 @@ Tool: SKStoreReviewController API
 
 
 
-### Spotlight (Search in iOS home screem)
+### :mag: Spotlight (Search in iOS home screem)
 #### Searchable
 To be able to search Action in spotlight,  we need to:
 1. Create an unique identifier 
@@ -90,14 +90,14 @@ using `navigationLink` to programatically switch to the specific `EditActionView
 `CSSearchableIndex.default().deleteSearchableItems(withIdentifiers: [id])`
 
 
-### Quick Action
+### :airplane: Quick Action
 1. Create URL of application in Target/info
 2. Add UIApplicationShortcutItem in info.plist
 3. Create AppDelegate and SceneDelegate class
 4. On ContentView, listen to `.onOpenURL`
 
 
-### Shortcut
+### :rocket: Shortcut
 (After Spotlight and Quick Action in place as above)
 1. Create new `NSUserActivityTypes` in info.plist
 2. Define and listen to `onContinueUserActivity`
