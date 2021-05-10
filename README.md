@@ -22,6 +22,47 @@ Renovate App is here to serve you!
 ## IOS, SwiftUI Technical Details
 This is portfolio app, so here are details of different skills applied. 
 
+
+### :file_folder: Core Data
+#### Setup
+Create Datacontroller class as `ObservableObject`, set as `@EnvironmentObject`, so all files can access.
+Set container of type  `NSPersistentCloudKitContainer`
+
+
+#### Create
+New instance of entity should be created with `container.viewtext`, for example:
+`var renovation = Renovation(context: contianer.viewContext)`
+
+#### Retrieve
+With information of Entity, SortOption and Predicate, one create a fetchrequest to retrive data.
+
+To retrive directly to view, one can use `@FetchRequest` property wrapper in view, the view will be updated when the data is updated.
+Here to apply MVVM, different approach - `NSFetchRequest`, `NSFetchedResultsController(Delegate)` are used, detail see MVVM section below.
+[Here](https://github.com/EpiGardenia/CS193P_2020Spring/tree/master/Projects/Lectures/Lecture12) provides another way to implement MVVM without delegate
+
+
+
+#### Update
+Update data when there is a change by using:
+`
+    if container.viewContext.hasChanges {
+        try? container.viewContext.save()
+    }
+`
+#### Delete
+Single object: `contianer.viewContext.delete(object)` or 
+All instance of an entity: `NSBatchDeleteRequest(fetchRequest: <Entity>.fetchRequest())`
+
+#### Others -- count
+It contains a build-in count function
+`container.viewContext.count(for: fetchRequest)`
+
+### :radio_button: JSON
+To decode .json file: 
+Create a cooresponding struct conform decodable
+Use `decode()` to read data and show on views
+
+
 ### :round_pushpin: Localization
 Localizable.strings: English (sysetm), Swedish
 Localizable.stringsdict: Localize the variable format in sentence ( e.g. 1 apple, 2 apples)
